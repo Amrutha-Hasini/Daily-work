@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Registration Form</title>
+  </head>
+  <body>
+    <div class="form-container">
+      <form id="registrationForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+          <option value="">--Select--</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
+
+        <label for="course">Course:</label>
+        <input type="text" id="course" name="course" required />
+
+        <button type="submit">Register</button>
+      </form>
+    </div>
+
+    <div id="result" class="result" style="display: none;">
+      <h3>Submitted Details</h3>
+      <p><strong>Name:</strong> <span id="displayName"></span></p>
+      <p><strong>Email:</strong> <span id="displayEmail"></span></p>
+      <p><strong>Gender:</strong> <span id="displayGender"></span></p>
+      <p><strong>Course:</strong> <span id="displayCourse"></span></p>
+    </div>
+
+    <script>
+      const form = document.getElementById('registrationForm');
+      form.addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent actual form submission
+
+        // Get form values
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const gender = document.getElementById('gender').value;
+        const course = document.getElementById('course').value;
+
+        // Display results
+        document.getElementById('displayName').textContent = name;
+        document.getElementById('displayEmail').textContent = email;
+        document.getElementById('displayGender').textContent = gender;
+        document.getElementById('displayCourse').textContent = course;
+
+        document.getElementById('result').style.display = 'block';
+      });
+    </script>
+  </body>
+</html>
