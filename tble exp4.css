@@ -1,0 +1,23 @@
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+td,th{
+    padding:8px;
+    text-align:left;
+    border-bottom:1px solid whitesmoke;
+}
+tr:nth-child(even){
+    background-color:lightpink;
+}
+tr:hover{
+    background-color: lightblue;
+}
+.buynow:hover{
+    cursor: pointer;
+    transform:scale(8.5);
+}
+.sticky{
+    position: sticky;
+    top: 0;
+}

@@ -1,0 +1,31 @@
+<html>
+<head>
+    <title>Form Validation Example</title>
+</head>
+<body>
+    <form id="regform"> <!-- Fixed id -->
+        Name: <input type="text" id="cname"><br><br>
+        Education: <input type="text" id="education"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+    <div>
+        Name is entered: <span id="spanname"></span><br><br>
+        Education: <span id="spaneducation"></span><br><br>
+    </div>
+
+    <script>
+        // Corrected: getElementById (not getElementId), fixed typo in ID
+        const myform = document.getElementById('regform');
+
+        myform.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form from reloading the page
+
+            var cname = document.getElementById('cname').value;
+            var education = document.getElementById('education').value;
+
+            document.getElementById('spanname').textContent = cname;
+            document.getElementById('spaneducation').textContent = education;
+        });
+    </script>
+</body>
+</html>

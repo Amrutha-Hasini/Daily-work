@@ -1,0 +1,28 @@
+#itemList{
+    list-style-type: none;
+    padding:0;
+    margin-top:20px;
+}
+
+ li{
+    display:inline;
+    padding: 10px;
+    border: 0px solid grey;
+    border-radius:10px;
+    background-color: rgb(111, 212, 232);
+    align-items:center;
+    cursor:pointer;
+
+}
+li:hover{
+    background-color: rgb(84, 98, 232);
+    border:1px solid grey;
+    color:rgb(222, 110, 200);
+}
+#container{
+    width:80%;
+    margin:0 auto;
+    border: 0px solid rgb(21, 21, 21);
+    background-color: rgb(4, 4, 4);
+    padding:auto;
+}
