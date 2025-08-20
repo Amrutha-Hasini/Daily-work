@@ -1,0 +1,22 @@
+<html>
+    <body>
+        <h2>
+           Date and Time Demo
+        </h2>
+        <button id="datebtn" onclick="showdate()">Show Date</button><br><br>
+        <button id="timebtn" onclick="showtime()">Show Time</button><br><br>
+        <p id="date"></p>
+        <p id="time"></p>
+        <script>
+            function showdate(){
+                let nowdate=new Date();
+                document.getElementById("date").innerHTML="Current Date: "+nowdate.toDateString();
+            }
+            function showtime(){
+                let nowtime=new Date();
+                document.getElementById("time").innerHTML="Current Time: "+nowtime.toLocaleTimeString();
+            }
+            setInterval(showtime,1000);
+        </script>
+    </body>
+</html>
