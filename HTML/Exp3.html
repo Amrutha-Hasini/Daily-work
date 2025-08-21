@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Responsive Demo | Exercise 3</title>
+  <link rel="stylesheet" href="style1.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1>Acme Web</h1>
+      <nav aria-label="Primary" class="nav">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="menu">☰</button>
+        <ul id="menu" class="menu">
+          <li><a href="#features">Features</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+   
+    <section class="hero container">
+      <div class="hero-text">
+        <h2>Build once. Look great everywhere.</h2>
+        <p>This page is styled with an external CSS file and adapts to phones, tablets, and desktops.</p>
+        <a class="btn" href="#features">See Features</a>
+      </div>
+
+     
+      <picture>
+       
+        <source srcset="images/hero-640.jpg" media="(max-width: 640px)" />
+       
+        <source srcset="images/hero-1024.jpg" media="(max-width: 1024px)" />
+       
+        <img
+          src="images/hero-1600.jpg"
+          alt="Abstract responsive web layout illustration"
+          class="hero-img"
+          loading="lazy"
+          decoding="async"
+        />
+      </picture>
+    </section>
+
+    <!-- Features grid -->
+    <section id="features" class="container features">
+      <article class="card">
+        <h3>Mobile-first</h3>
+        <p>Starts simple on small screens, then enhances with media queries.</p>
+      </article>
+      <article class="card">
+        <h3>Accessible</h3>
+        <p>Semantic HTML, visible focus states, and skip link included.</p>
+      </article>
+      <article class="card">
+        <h3>Fast</h3>
+        <p>Responsive images with <code>&lt;picture&gt;</code> reduce download size.</p>
+      </article>
+    </section>
+
+    <!-- Two-column section that collapses on mobile -->
+    <section id="about" class="container about">
+      <div>
+        <h2>About this exercise</h2>
+        <p>
+          Use Git to track your changes (<code>git add</code>, <code>git commit</code>, <code>git status</code>),
+          and explore history with <code>git log</code> and <code>git diff</code>.
+          Try switching branches with <code>git checkout</code> and experiment with <code>git reset</code> on a test repo.
+        </p>
+      </div>
+      <aside class="note">
+        <h4>Tip</h4>
+        <p>Resize your browser to see the layout adapt at 640px and 1024px breakpoints.</p>
+      </aside>
+    </section>
+
+    <section id="contact" class="container contact">
+      <h2>Contact</h2>
+      <form class="contact-form" action="#" method="post">
+        <label>
+          Name
+          <input type="text" name="name" required />
+        </label>
+        <label>
+          Email
+          <input type="email" name="email" required />
+        </label>
+        <label class="full">
+          Message
+          <textarea name="message" rows="4" required></textarea>
+        </label>
+        <button class="btn" type="submit">Send</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© 2025 Acme Web • Built for “Responsive Web Page & Git History Exploration”</small>
+    </div>
+  </footer>
+
+  <script>
+    // Small, accessible nav toggle for mobile
+    const btn = document.querySelector('.nav-toggle');
+    const menu = document.getElementById('menu');
+    btn.addEventListener('click', () => {
+      const open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!open));
+      menu.classList.toggle('open');
+    });
+  </script>
+</body>
+</html>
