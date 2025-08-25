@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>transitions</title>
+    </head>
+    <style>
+        .box{
+            width: 100px;
+            height: 240px;
+            background-color: aquamarine;
+            border-radius: 0;
+            transition: all 0.5s ease-in-out;
+        }
+        .box:hover{
+            width: 200px;
+            height: 150px;
+            background-color: red;
+            border-radius: 5px;
+            border-color: black;
+            border-collapse: collapse;
+        }
+    </style>
+    <body>
+        <h1>CSS transitions</h1>
+        <div  classid="box"style="width:100px;height:100px;background-color:aqua;transition:width 2s ease;" 
+             onmouseover="this.style.backgroundColor='red';this.style.width='200px'"; 
+             onmouseout="this.style.backgroundColor='pink';this.style.width='100px'";>
+        </div>
+    </body>
+</html>
