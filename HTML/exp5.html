@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Registration Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+    }
+    form {
+      width: 300px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background: #f9f9f9;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: italic;
+    }
+    input {
+      width: 95%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    input.valid {
+      border-color: green;
+      background: #eaffea;
+    }
+    input.invalid {
+      border-color: red;
+      background: #ffeaea;
+    }
+    .error {
+      color: rgb(0, 255, 26);
+      font-size: 12px;
+      display: none;
+    }
+    .success {
+      margin-top: 15px;
+      padding: 10px;
+      background: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+      border-radius: 5px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Registration Form</h2>
+<form id="registrationForm">
+  <label for="fullname">Full Name</label>
+  <input type="text" id="fullname" name="fullname" required>
+  <span class="error" id="fullnameError">Full Name is required</span>
+
+  <label for="email">Email</label>
+  <input type="email" id="email" name="email" required>
+  <span class="error" id="emailError">Enter a valid email</span>
+
+  <label for="password">Password</label>
+  <input type="password" id="password" name="password" required>
+  <span class="error" id="passwordError">Password must be at least 8 chars, include a number and special character</span>
+
+  <label for="phone">Phone Number</label>
+  <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required>
+  <span class="error" id="phoneError">Enter a valid 10git phone number</span>
+
+  <button type="submit">Register</button>
+</form>
+
+<div class="success" id="successMessage">Registration Successful!</div>
+
+<script>
+  const form = document.getElementById("registrationForm");
+  const fullname = document.getElementById("fullname");
+  const email = document.getElementById("email");
+  const password = document.getElementById("password");
+  const phone = document.getElementById("phone");
+
+  const fullnameError = document.getElementById("fullnameError");
+  const emailError = document.getElementById("emailError");
+  const passwordError = document.getElementById("passwordError");
+  const phoneError = document.getElementById("phoneError");
+  const successMessage = document.getElementById("successMessage");
+
+  // Validation functions
+  function validateFullName() {
+    if (fullname.value.trim() === "") {
+      showError(fullname, fullnameError);
+      return false;
+    } else {
+      showValid(fullname, fullnameError);
+      return true;
+    }
+  }
+
+  function validateEmail() {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!regex.test(email.value.trim())) {
+      showError(email, emailError);
+      return false;
+    } else {
+      showValid(email, emailError);
+      return true;
+    }
+  }
+
+  function validatePassword() {
+    const regex = /^(?=.[0-9])(?=.[!@#$%^&*]).{8,}$/;
+    if (!regex.test(password.value)) {
+      showError(password, passwordError);
+      return false;
+    } else {
+      showValid(password, passwordError);
+      return true;
+    }
+  }
+
+  function validatePhone() {
+    const regex = /^[0-9]{10}$/;
+    if (!regex.test(phone.value.trim())) {
+      showError(phone, phoneError);
+      return false;
+    } else {
+      showValid(phone, phoneError);
+      return true;
+    }
+  }
+
+  // Helper functions
+  function showError(input, errorElement) {
+    input.classList.add("invalid");
+    input.classList.remove("valid");
+    errorElement.style.display = "block";
+  }
+
+  function showValid(input, errorElement) {
+    input.classList.add("valid");
+    input.classList.remove("invalid");
+    errorElement.style.display = "none";
+  }
+
+  // Event listeners
+  fullname.addEventListener("input", validateFullName);
+  email.addEventListener("input", validateEmail);
+  password.addEventListener("input", validatePassword);
+  phone.addEventListener("input", validatePhone);
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const isFullNameValid = validateFullName();
+    const isEmailValid = validateEmail();
+    const isPasswordValid = validatePassword();
+    const isPhoneValid = validatePhone();
+
+    if (isFullNameValid && isEmailValid && isPasswordValid && isPhoneValid) {
+      successMessage.style.display = "block";
+      form.reset();
+      [fullname, email, password, phone].forEach(input => input.classList.remove("valid"));
+    } else {
+      successMessage.style.display = "none";
+    }
+  });
+</script>
+
+</body>
+</html>

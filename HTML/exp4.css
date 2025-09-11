@@ -1,0 +1,147 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Navigation */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(51, 51, 51, 0.9);
+  padding: 1rem 0;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  z-index: 1000;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #f8b500;
+}
+
+/* Spacer for fixed nav */
+.spacer {
+  height: 70px;
+}
+
+/* Hero Section */
+header {
+  height: 80vh;
+  background-image: url('https://static.vecteezy.com/system/resources/thumbnails/001/428/611/small_2x/rustic-bread-and-bakery-banner-vector.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+header h1 {
+  font-size: 3rem;
+  background: rgba(0,0,0,0.5);
+  padding: 1rem 2rem;
+  border-radius: 10px;
+}
+
+/* Slideshow */
+.slideshow {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 2rem auto;
+  overflow: hidden;
+}
+
+.slides {
+  display: flex;
+  width: 500%; /* 5 images */
+  animation: slide 5.5s infinite; /* slow motion */
+}
+
+.slide {
+  flex: 0 0 20%; /* each slide takes 20% */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f5f5f5;
+  aspect-ratio: 16/9; /* fixed ratio */
+}
+
+.slide img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* preserve image ratio */
+  border-radius: 10px;
+}
+
+/* Slow Motion Animation */
+@keyframes slide {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(-20%); }
+  40% { transform: translateX(-40%); }
+  60% { transform: translateX(-60%); }
+  80% { transform: translateX(-80%); }
+  100% { transform: translateX(0); }
+}
+
+/* Sections */
+section {
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+section h2 {
+  margin-bottom: 1rem;
+  color: #f8b500;
+}
+
+section p {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+}
+
+/* Footer */
+footer {
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: 2rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .slide {
+    aspect-ratio: 4/3; /* taller for mobile */
+  }
+
+  header h1 {
+    font-size: 2rem;
+    padding: 0.8rem 1.5rem;
+  }
+}
